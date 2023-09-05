@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const EnvioMensagemContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 16px; /* Adicione algum espaço ao redor do componente */
+  background-color: #fff; /* Adicione uma cor de fundo, se desejar */
+  z-index: 1000; /* Garanta que ele esteja sobreposto a outras partes da página */
+`;
 
 const EnvioMensagem = ({ onEnviarMensagem }) => {
   const [remetente, setRemetente] = useState('');
@@ -6,7 +16,7 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
 
   const handleEnviar = () => {
     if (remetente.trim() !== '' && conteudo.trim() !== '') {
-      onEnviarMensagem({ remetente, conteudo });
+      onEnviarMensagem(remetente, conteudo); // Passa remetente e conteudo como strings
       setRemetente('');
       setConteudo('');
     }
@@ -19,7 +29,7 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
   };
 
   return (
-    <div>
+    <EnvioMensagemContainer>
       <input
         type="text"
         placeholder="Remetente"
@@ -36,7 +46,7 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
         style={{ width: '70%' }}
       />
       <button onClick={handleEnviar}>Enviar</button>
-    </div>
+    </EnvioMensagemContainer>
   );
 };
 

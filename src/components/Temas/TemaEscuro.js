@@ -1,11 +1,16 @@
 const temaEscuro = {
-    // Cinza escuro: #121212
-    // Cinza Claro: #292929
-    // Roxo : #bb86fc
-    headerBackground: '#121212',
-    headerText: '#fff',
-    toggleButtonText: '#fff',
-  };
-  
-  export default temaEscuro;
-  
+  // Fundo escuro
+  backgroundColor: '#121212',
+
+  // Texto claro para contraste
+  textColor: '#fff',
+
+  // Cores adicionais
+  primaryColor: '#bb86fc', // Roxo
+  secondaryColor: '#292929', // Cinza claro
+
+  // Outras propriedades de estilo
+  // ...
+};
+
+export default temaEscuro;
