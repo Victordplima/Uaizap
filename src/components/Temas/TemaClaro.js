@@ -1,9 +1,10 @@
 const temaClaro = {
   // Fundo escuro
-  backgroundColor: '#007bff',
-
+  headerColor: '#eeeeee',
+  barraLateralColor:'#f0f0f0',
+  // #f0f0f0
   // Texto claro para contraste
-  textColor: '#fff',
+  textColor: '#000000',
 
   // Cores adicionais
   primaryColor: '#bb86fc', // Roxo

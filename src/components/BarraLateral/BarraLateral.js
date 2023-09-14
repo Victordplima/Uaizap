@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const SidebarContainer = styled.div`
   width: 250px;
-  background-color: ${props => props.theme.backgroundColor}; /* Use o tema para estilização */
+  background-color: ${props => props.theme.barraLateralColor}; /* Use o tema para estilização */
   color: ${props => props.theme.textColor}; /* Use o tema para estilização */
   padding: 20px;
   height: 100%;
