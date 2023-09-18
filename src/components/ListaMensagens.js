@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-//import temaEscuro from './Temas/TemaEscuro';
-//import temaClaro from './Temas/TemaClaro';
 
 const MensagemContainer = styled.div`
   display: flex;
@@ -14,7 +12,7 @@ const MensagemContainer = styled.div`
 
 const MensagemTexto = styled.div`
   background-color: ${(props) => (props.isMe ? props.theme.roxoColor : props.theme.containerMensagemColor)};
-  color: ${(props) => (props.isMe ? '#fff' : '#fff')};
+  color: ${(props) => (props.isMe ? props.theme.textColor : props.theme.textColor)};
   padding: 8px;
   border-radius: 8px;
   max-width: 70%;
@@ -46,17 +44,17 @@ const ListaMensagens = ({ mensagens, onDelete }) => {
       {mensagens.map((mensagem, index) => (
         <MensagemContainer
           key={index}
-          isMe={mensagem.remetente === 'eu'}
+          isMe={mensagem.remetente.toLowerCase().trim() === 'eu'}
           onDoubleClick={() => handleDeletarMensagem(index)}
         >
-          <MensagemTexto isMe={mensagem.remetente === 'eu'}>
-            {mensagem.remetente !== 'eu' && (
-              <RemetenteNome isMe={mensagem.remetente === 'eu'}>
+          <MensagemTexto isMe={mensagem.remetente.toLowerCase().trim() === 'eu'}>
+            {mensagem.remetente.toLowerCase().trim() !== 'eu' && (
+              <RemetenteNome isMe={mensagem.remetente.toLowerCase().trim() === 'eu'}>
                 {mensagem.remetente}:
               </RemetenteNome>
             )}
             {mensagem.conteudo}
-            <HorarioMensagem isMe={mensagem.remetente === 'eu'}>
+            <HorarioMensagem isMe={mensagem.remetente.toLowerCase().trim() === 'eu'}>
               {mensagem.horario}
             </HorarioMensagem>
           </MensagemTexto>

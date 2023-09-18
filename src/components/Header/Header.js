@@ -40,10 +40,11 @@ const ToggleButton = styled.button`
     left: 0;
     width: 60px;
     height: 30px; /* Aumente a altura para cobrir o botão */
-    background-color: ${props => (props.switchOn ? '#ccc' : '#4CAF50')};
+    background-color: ${props => (props.switchOn ? '#ffffff' : '#bb86fc')};
     transform: translateY(-50%);
     transition: background-color 0.3s;
     border-radius: 20px; /* Adicione bordas arredondadas */
+    border: black 1px solid
   }
 
   .slider {

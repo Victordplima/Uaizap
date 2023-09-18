@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-//import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 
 const EnvioMensagemContainer = styled.div`
@@ -78,9 +77,10 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
   };
 
   const SeletorEmoji = styled(Picker)`
-  position: absolute;
-  top: -200px; /* Ajuste essa margem superior conforme necessário para posicionar o seletor acima do campo "Remetente" */
-  left: 0;
+  //position: absolute;
+  //top: -200px; /* Ajuste essa margem superior conforme necessário para posicionar o seletor acima do campo "Remetente" */
+  //left: 0;
+  //right: 10px;
 `;
 
   return (
@@ -100,10 +100,13 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
         onKeyDown={handleKeyDown}
       />
       <BotaoEnviar onClick={handleEnviar}>Enviar</BotaoEnviar>
-
-
-
-      {mostrarSeletorEmoji && <SeletorEmoji set="apple" onSelect={handleSelectEmoji} />}
+      {mostrarSeletorEmoji && (
+        <SeletorEmoji
+          set="apple"
+          onSelect={handleSelectEmoji}
+          style={{ position: 'absolute', top: '1000px', right: '10px' }}
+        />
+      )}
     </EnvioMensagemContainer>
   );
 };

@@ -1,3 +1,0 @@
-// Cinza escuro: #121212
-    // Cinza Claro: #292929
-    // Roxo : #bb86fc

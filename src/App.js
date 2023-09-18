@@ -48,7 +48,6 @@ const App = () => {
       <div>
         <Header toggleTheme={toggleTheme} />
         <BarraLateral theme={theme} />
-        <h1>Uaizap</h1>
         <MensagensContainer>
           <Chat
             mensagens={mensagens}
