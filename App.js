@@ -13,8 +13,7 @@ import 'typeface-roboto';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    // ainda falta decidir o background -=-=-=-=-=-
-    //background-image: url(${props => props.theme.mode === 'temaClaro' ? lightBackground : darkBackground});
+    background-image: url(${props => props.theme.mode === 'temaClaro' ? lightBackground : darkBackground});
     background-color: black;
     margin: 0;
     font-family: 'Roboto', sans-serif;

@@ -5,6 +5,7 @@ const temaEscuro = {
   containerMensagemColor: '#292929',
   textColor: '#fff',
   roxoColor: '#bb86fc', // Roxo
+  grupoColor: '#212121'
 };
 
 export default temaEscuro;

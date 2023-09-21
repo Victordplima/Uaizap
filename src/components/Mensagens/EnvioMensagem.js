@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Picker from '@emoji-mart/react';
+import iconeEnviar from '../../assets/iconeEnviar.png';
 
 const EnvioMensagemContainer = styled.div`
   position: fixed;
@@ -16,37 +16,38 @@ const EnvioMensagemContainer = styled.div`
 `;
 
 const InputRemetente = styled.input`
-  width: 15%;
+  flex: 1;
+  max-width: 15%;
   margin-right: 10px;
   padding: 8px;
 `;
 
 const InputConteudo = styled.input`
-  width: 40%;
+  flex: 3;
+  max-width: 50%;
   padding: 8px;
 `;
 
-const BotaoEnviar = styled.button`
-  width: 5%;
-  background-color: #bb86fc;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
+const EnviarIcone = styled.img`
+  flex: 0.2;
+  width: 24px;
+  height: 24px;
 `;
 
-const BotaoEmoji = styled.button`
-  //background-color: #28a745;
-  color: #fff;
-  padding: 8px 16px;
+const BotaoEnviar = styled.button`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #bb86fc;
   border: none;
   cursor: pointer;
+  position: relative;
+  margin-left: 10px;
 `;
 
 const EnvioMensagem = ({ onEnviarMensagem }) => {
   const [remetente, setRemetente] = useState('');
   const [conteudo, setConteudo] = useState('');
-  const [mostrarSeletorEmoji, setMostrarSeletorEmoji] = useState(false);
 
   const handleEnviar = () => {
     if (remetente.trim() !== '' && conteudo.trim() !== '') {
@@ -63,25 +64,6 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
     }
   };
 
-  const handleAbrirSeletorEmoji = () => {
-    setMostrarSeletorEmoji(true);
-  };
-
-  const handleFecharSeletorEmoji = () => {
-    setMostrarSeletorEmoji(false);
-  };
-
-  const handleSelectEmoji = (emoji) => {
-    setConteudo(conteudo + emoji.native);
-    handleFecharSeletorEmoji();
-  };
-
-  const SeletorEmoji = styled(Picker)`
-  //position: absolute;
-  //top: -200px; /* Ajuste essa margem superior conforme necessário para posicionar o seletor acima do campo "Remetente" */
-  //left: 0;
-  //right: 10px;
-`;
 
   return (
     <EnvioMensagemContainer>
@@ -91,7 +73,7 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
         value={remetente}
         onChange={(e) => setRemetente(e.target.value)}
       />
-      <BotaoEmoji onClick={handleAbrirSeletorEmoji}>😊</BotaoEmoji>
+
       <InputConteudo
         type="text"
         placeholder="Conteúdo"
@@ -99,14 +81,11 @@ const EnvioMensagem = ({ onEnviarMensagem }) => {
         onChange={(e) => setConteudo(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <BotaoEnviar onClick={handleEnviar}>Enviar</BotaoEnviar>
-      {mostrarSeletorEmoji && (
-        <SeletorEmoji
-          set="apple"
-          onSelect={handleSelectEmoji}
-          style={{ position: 'absolute', top: '1000px', right: '10px' }}
-        />
-      )}
+
+      <BotaoEnviar onClick={handleEnviar}>
+        <EnviarIcone src={iconeEnviar} alt="Enviar" />
+      </BotaoEnviar>
+
     </EnvioMensagemContainer>
   );
 };

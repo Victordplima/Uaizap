@@ -5,6 +5,7 @@ const temaClaro = {
   containerMensagemColor: '#fff',
   textColor: '#000000',
   roxoColor: '#bb86fc',
+  grupoColor: '#ddd'
 };
 
 export default temaClaro;

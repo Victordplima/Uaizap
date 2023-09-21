@@ -5,7 +5,6 @@ import ListaMensagens from './ListaMensagens';
 const ChatContainer = styled.div`
 `;
 
-
 const Chat = ({ mensagens, onEnviarMensagem, onDelete }) => {
   return (
     <ChatContainer>

@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import logo from '../../assets/uaizap.png';
+import perfil from '../../assets/perfil.jpg';
 import ligado from '../../assets/ligado.png';
 import desligado from '../../assets/desligado.png';
+import fotoGrupo from '../../assets/fotoGrupo.jpg'
 
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${props => props.theme.headerColor};
-  color: ${props => props.theme.headerText};
+  color: ${props => props.theme.textColor};
   padding: 16px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
-`;
-
-const Logo = styled.img`
-  height: 40px;
 `;
 
 const ToggleButton = styled.button`
@@ -55,35 +52,92 @@ const ToggleButton = styled.button`
     height: 26px;
     border-radius: 50%;
     transition: 0.3s;
-    background-image: url(${props => (props.switchOn ? ligado : desligado)});
+    background-image: url(${props => (props.switchOn ? desligado : ligado)});
     background-size: cover;
   }
 `;
 
+const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #ccc;
+  padding-right: 90px;
+`;
 
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
 
+const GroupInfo = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 1450px;
+`;
 
+const GroupImage = styled.img`
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+`;
 
+const GroupDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const GroupName = styled.div`
+  font-weight: bold;
+`;
+
+const GroupDescription = styled.div`
+  font-size: 12px;
+  color: #888;
+`;
+
+const Perfil = styled.img`
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+`;
+
+const MensagemBoasVindas = styled.div`
+  font-size: 16px;
+  color: ${props => props.theme.textColor};
+`;
 
 const Header = ({ toggleTheme }) => {
   const [switchOn, setSwitchOn] = useState(false);
 
   const toggleSwitch = () => {
     setSwitchOn(!switchOn);
-    toggleTheme(); // Chame a função para alternar o tema
+    toggleTheme();
   };
 
   return (
     <HeaderContainer>
-      {/* Use a imagem da logo importada */}
-      <Logo src={logo} alt="Logo" />
-      <ToggleButton
-        onClick={toggleSwitch}
-        switchOn={switchOn}
-      >
-        <span className="track"></span> {/* Adicione esta linha */}
-        <span className="slider"></span>
-      </ToggleButton>
+      <LeftSection>
+        <Perfil src={perfil} alt="Foto de Perfil" />
+        <MensagemBoasVindas>Bem-vindo, Usuário!</MensagemBoasVindas>
+      </LeftSection>
+      <RightSection>
+        <GroupInfo>
+          <GroupImage src={fotoGrupo} alt="Foto do Grupo" />
+          <GroupDetails>
+            <GroupName>Uaizap</GroupName>
+            <GroupDescription>Descrição</GroupDescription>
+          </GroupDetails>
+        </GroupInfo>
+        <ToggleButton
+          onClick={toggleSwitch}
+          switchOn={switchOn}
+        >
+          <span className="track"></span>
+          <span className="slider"></span>
+        </ToggleButton>
+      </RightSection>
     </HeaderContainer>
   );
 };

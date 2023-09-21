@@ -4,8 +4,8 @@ import TemaClaro from './components/Temas/TemaClaro';
 import TemaEscuro from './components/Temas/TemaEscuro';
 import Header from './components/Header/Header';
 import BarraLateral from './components/BarraLateral/BarraLateral';
-import MensagensContainer from './components/MensagemContainer';
-import Chat from './components/Chat'; // Importe o componente Chat
+import MensagensContainer from './components/Mensagens/MensagemContainer';
+import Chat from './components/Mensagens/Chat';
 import { createGlobalStyle } from 'styled-components';
 import darkBackground from './assets/darkBackground.jpg';
 import lightBackground from './assets/lightBackground.png';
@@ -13,8 +13,7 @@ import 'typeface-roboto';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    // ainda falta decidir o background -=-=-=-=-=-
-    //background-image: url(${props => props.theme.mode === 'temaClaro' ? lightBackground : darkBackground});
+    background-image: url(${props => props.theme.mode === 'temaClaro' ? lightBackground : darkBackground});
     background-color: black;
     margin: 0;
     font-family: 'Roboto', sans-serif;
